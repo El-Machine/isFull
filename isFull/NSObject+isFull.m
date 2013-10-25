@@ -14,6 +14,7 @@
 {
     NSAssert([self isMemberOfClass:[NSObject class]],
              @"Subclasses should override this method for preventing calling super from NSObject which always returns YES");
+    
     return YES;
 }
 
@@ -50,7 +51,7 @@
 
 - (BOOL)isFull
 {
-    return [[self stringValue] isFull];
+    return fabsf([self floatValue]) > FLT_EPSILON;
 }
 
 @end

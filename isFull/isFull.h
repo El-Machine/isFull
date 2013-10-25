@@ -6,8 +6,4 @@
 //  Copyright (c) 2013 alkozin. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
-@protocol isFull <NSObject>
-
-@end
+#import "NSObject+isFull.h"

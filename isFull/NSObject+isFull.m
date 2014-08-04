@@ -67,7 +67,26 @@
 
 - (BOOL)isFull
 {
-    return fabsf([self floatValue]) > FLT_EPSILON;
+    BOOL isFull = fabs([self doubleValue]) > DBL_EPSILON;
+    return isFull;
+}
+
+@end
+
+@implementation NSOrderedSet (isFull)
+
+- (BOOL)isFull
+{
+    return self.count > 0;
+}
+
+@end
+
+@implementation NSSet (isFull)
+
+- (BOOL)isFull
+{
+    return self.count > 0;
 }
 
 @end
@@ -77,6 +96,15 @@
 - (BOOL)isFull
 {
     return self.length > 0;
+}
+
+@end
+
+@implementation NSURL (isFull)
+
+- (BOOL)isFull
+{
+    return [[self absoluteString] isFull];
 }
 
 @end

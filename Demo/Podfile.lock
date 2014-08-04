@@ -1,0 +1,14 @@
+PODS:
+  - isFull (0.0.1)
+
+DEPENDENCIES:
+  - isFull (from `..`)
+
+EXTERNAL SOURCES:
+  isFull:
+    :path: ..
+
+SPEC CHECKSUMS:
+  isFull: 4ef5cc1efbd18ed312b38f83961b40b9c4350968
+
+COCOAPODS: 0.24.0

@@ -24,13 +24,16 @@
 
 #import <Foundation/Foundation.h>
 
+#define isFull(object) [object isFull]
+#define isEmpty(object) !object | ![object isFull]
+
 @interface NSObject (isFull)
 
 /**
- Whether the object contains data
- 
- @return 'YES' if object contains any data, otherwise 'NO'
- */
+*  Determines whether object contains data
+*
+*  @return 'YES' if object contains any data, otherwise 'NO'
+*/
 - (BOOL)isFull;
 
 @end

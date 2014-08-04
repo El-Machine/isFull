@@ -1,8 +1,8 @@
 //
 //  NSObject+isFull.h
 //
-// Created by Alexander Kozin (https://github.com/alkozin )
-// Copyright (c) 2013 (http://Siberian.pro )
+// Created by Alexander Kozin (https://github.com/alkozin al.kozin@gmail.com)
+// Copyright (c) 2013
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal

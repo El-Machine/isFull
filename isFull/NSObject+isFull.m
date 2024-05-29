@@ -29,8 +29,8 @@
 - (BOOL)isFull
 {
     NSAssert([self isMemberOfClass:[NSObject class]],
-             @"Subclasses should override this method for preventing calling super from NSObject which always returns YES");
-    
+             @"Should be overriden");
+
     return YES;
 }
 
@@ -67,7 +67,8 @@
 
 - (BOOL)isFull
 {
-    BOOL isFull = fabs([self doubleValue]) > DBL_EPSILON;
+    
+    BOOL isFull = fabs([self doubleValue]) >= DBL_MIN;
     return isFull;
 }
 

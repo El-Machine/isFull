@@ -10,6 +10,7 @@
 
 #import <isFull.h>
 
+
 @interface DemoIsFullMethodTests : XCTestCase
 
 @end
@@ -19,147 +20,142 @@
 - (void)testNil
 {
     id empty = nil;
-    XCTAssertFalse([empty isFull], @"Object should be empty");
+    XCTAssertFalse( isFull(empty) , @"Should be empty");
 }
 
 - (void)testNSArray
 {
     NSArray *empty = @[];
-    XCTAssertFalse([empty isFull], @"Object should be empty");
+    XCTAssertFalse( [empty isFull] , @"Should be empty");
 
-    NSArray *full = @[@"1",
-                      @"2",
-                      @"3"];
-    XCTAssertTrue([full isFull], @"Object should be full");
+    NSArray *full = @[@"1", @"2", @"3"];
+    XCTAssertTrue( [full isFull] , @"Should be full");
 }
 
 - (void)testNSDictionary
 {
     NSDictionary *empty = @{};
-    XCTAssertFalse([empty isFull], @"Object should be empty");
+    XCTAssertTrue( isEmpty(empty) , @"Should be empty");
 
     NSDictionary *full = @{@"1": @"1",
                            @"2": @"2",
                            @"3": @"3"};
-    XCTAssertTrue([full isFull], @"Object should be full");
+    XCTAssertTrue( isFull(full) , @"Should be full");
 }
 
 - (void)testNSNull
 {
     NSNull *empty = [NSNull null];
-    XCTAssertFalse([empty isFull], @"Object should be empty");
+    XCTAssertTrue( isEmpty(empty) , @"Should be empty");
 }
 
 - (void)testNSNumber
 {
     // zero
     NSNumber *zero = @(0);
-    XCTAssertFalse([zero isFull], @"Object should be empty");
+    XCTAssertFalse( [zero isFull] , @"Should be empty");
 
     // char
     NSNumber *charMinNumber = @(CHAR_MIN);
-    XCTAssertTrue([charMinNumber isFull], @"Object should be full");
+    XCTAssertTrue( [charMinNumber isFull] , @"Should be full");
 
     NSNumber *charNumber = [NSNumber numberWithChar:-16];
-    XCTAssertTrue([charNumber isFull], @"Object should be full");
+    XCTAssertTrue( [charNumber isFull] , @"Should be full");
 
     NSNumber *charMaxNumber = @(CHAR_MAX);
-    XCTAssertTrue([charMaxNumber isFull], @"Object should be full");
+    XCTAssertTrue( [charMaxNumber isFull] , @"Should be full");
 
     // unsigned char
     NSNumber *ucharNumber = [NSNumber numberWithUnsignedChar:16];
-    XCTAssertTrue([ucharNumber isFull], @"Object should be full");
+    XCTAssertTrue( [ucharNumber isFull] , @"Should be full");
 
     NSNumber *ucharMaxNumber = @(UCHAR_MAX);
-    XCTAssertTrue([ucharMaxNumber isFull], @"Object should be full");
+    XCTAssertTrue( [ucharMaxNumber isFull] , @"Should be full");
 
     // short
     NSNumber *shortMinNumber = @(SHRT_MIN);
-    XCTAssertTrue([shortMinNumber isFull], @"Object should be full");
+    XCTAssertTrue( [shortMinNumber isFull] , @"Should be full");
 
     NSNumber *shortNumber = [NSNumber numberWithShort:-16];
-    XCTAssertTrue([shortNumber isFull], @"Object should be full");
+    XCTAssertTrue( [shortNumber isFull] , @"Should be full");
 
     NSNumber *shortMaxNumber = @(SHRT_MAX);
-    XCTAssertTrue([shortMaxNumber isFull], @"Object should be full");
+    XCTAssertTrue( [shortMaxNumber isFull] , @"Should be full");
 
     // unsigned short
     NSNumber *ushortNumber = [NSNumber numberWithUnsignedShort:16];
-    XCTAssertTrue([ushortNumber isFull], @"Object should be full");
+    XCTAssertTrue( [ushortNumber isFull] , @"Should be full");
 
     NSNumber *ushortMaxNumber = @(USHRT_MAX);
-    XCTAssertTrue([ushortMaxNumber isFull], @"Object should be full");
+    XCTAssertTrue( [ushortMaxNumber isFull] , @"Should be full");
 
     // int
     NSNumber *intMinNumber = @(INT_MIN);
-    XCTAssertTrue([intMinNumber isFull], @"Object should be full");
+    XCTAssertTrue( [intMinNumber isFull] , @"Should be full");
 
     NSNumber *intNumber = [NSNumber numberWithShort:-16];
-    XCTAssertTrue([intNumber isFull], @"Object should be full");
+    XCTAssertTrue( [intNumber isFull] , @"Should be full");
 
     NSNumber *intMaxNumber = @(INT_MAX);
-    XCTAssertTrue([intMaxNumber isFull], @"Object should be full");
+    XCTAssertTrue( [intMaxNumber isFull] , @"Should be full");
 
     // uint
-
     NSNumber *uintNumber = [NSNumber numberWithShort:16];
-    XCTAssertTrue([uintNumber isFull], @"Object should be full");
+    XCTAssertTrue( [uintNumber isFull] , @"Should be full");
 
     NSNumber *uintMaxNumber = @(UINT_MAX);
-    XCTAssertTrue([uintMaxNumber isFull], @"Object should be full");
+    XCTAssertTrue( [uintMaxNumber isFull] , @"Should be full");
 
     // double
-// TODO: fix wrong behaviour
-//    NSNumber *dblMinNumber = @(DBL_MIN);
-//    XCTAssertTrue([dblMinNumber isFull], @"Object should be full");
+    NSNumber *dblMinNumber = @(DBL_MIN);
+    XCTAssertTrue( [dblMinNumber isFull] , @"Should be full");
 
     NSNumber *dblNumber = [NSNumber numberWithShort:-16.5];
-    XCTAssertTrue([dblNumber isFull], @"Object should be full");
+    XCTAssertTrue( [dblNumber isFull] , @"Should be full");
 
-    NSNumber *dblMaxNumber = @(INT_MAX);
-    XCTAssertTrue([dblMaxNumber isFull], @"Object should be full");
+    NSNumber *dblMaxNumber = @(DBL_MAX);
+    XCTAssertTrue( [dblMaxNumber isFull] , @"Should be full");
 
-    // float
-// TODO: fix wrong behaviour
-//    NSNumber *fltMinNumber = @(FLT_MIN);
-//    XCTAssertTrue([fltMinNumber isFull], @"Object should be full");
+    //float
+    NSNumber *fltMinNumber = @(FLT_MIN);
+    XCTAssertTrue( [fltMinNumber isFull] , @"Should be full");
 
     NSNumber *fltNumber = @(-16.5f);
-    XCTAssertTrue([fltNumber isFull], @"Object should be full");
+    XCTAssertTrue(  [fltNumber isFull]  , @"Should be full");
 
     NSNumber *fltMaxNumber = @(FLT_MAX);
-    XCTAssertTrue([fltMaxNumber isFull], @"Object should be full");
+    XCTAssertTrue( [fltMaxNumber isFull]  , @"Should be full");
 }
 
 - (void)testNSOrderedSet
 {
     NSOrderedSet *empty = [NSOrderedSet new];
-    XCTAssertFalse([empty isFull], @"Object should be empty");
+    XCTAssertTrue( isEmpty(empty) , @"Should be empty");
 
     NSOrderedSet *full = [[NSOrderedSet alloc] initWithArray:@[@"1",
                                                                @"2",
                                                                @"3"]];
-    XCTAssertTrue([full isFull], @"Object should be full");
+    XCTAssertTrue( isFull(full) , @"Should be full");
 }
 
 - (void)testNSSet
 {
     NSSet *empty = [NSSet set];
-    XCTAssertFalse([empty isFull], @"Object should be empty");
+    XCTAssertTrue( isEmpty(empty) , @"Should be empty");
 
     NSSet *full = [NSSet setWithArray:@[@"1",
                                            @"2",
                                            @"3"]];
-    XCTAssertTrue([full isFull], @"Object should be full");
+    XCTAssertTrue( isFull(full) , @"Should be full");
 }
 
 - (void)testNSString
 {
     NSString *empty = @"";
-    XCTAssertFalse([empty isFull], @"Object should be empty");
+    XCTAssertTrue( isEmpty(empty) , @"Should be empty");
 
     NSString *full = @"3";
-    XCTAssertTrue([full isFull], @"Object should be full");
+    XCTAssertTrue( isFull(full) , @"Should be full");
 }
 
 @end
